@@ -1,10 +1,13 @@
 package com.buildfunthings.aoc;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
 public class AppTest {
+
+    @Test
     public void testLoadInput() {
-        App.loadInput(1);
-        App.loadInput(5);
-        App.loadInput(10);
-        App.loadInput(20);
+        assertEquals(1, 3);
     }
 }
