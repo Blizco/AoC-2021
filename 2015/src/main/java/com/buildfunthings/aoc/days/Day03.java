@@ -15,77 +15,71 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 public class Day03 implements Day {
-    @AllArgsConstructor
-    @ToString
-    @EqualsAndHashCode
-    class Position {
-        int x, y;
-    }
+	@AllArgsConstructor
+	@ToString
+	@EqualsAndHashCode
+	class Position {
+		int x, y;
+	}
 
-    private Map<Position, Integer> performSteps(List<String> steps) {
-        Map<Position, Integer> locations = new HashMap<>();
+	private Map<Position, Integer> performSteps(List<String> steps) {
+		Map<Position, Integer> locations = new HashMap<>();
 
-        int x = 0, y = 0;
+		int x = 0, y = 0;
 
-        for (String step : steps) {
-            switch (step) {
-            case "<":
-                --x;
-                break;
-            case">":
-                ++x;
-                break;
-            case "^":
-                ++y;
-                break;
-            case "v":
-                --y;
-                break;
-            }
+		for (String step : steps) {
+			switch (step) {
+			case "<":
+				--x;
+				break;
+			case ">":
+				++x;
+				break;
+			case "^":
+				++y;
+				break;
+			case "v":
+				--y;
+				break;
+			}
 
-            Position p = new Position(x, y);
-            Integer currentValue = locations.get(p);
-            locations.put(p, (currentValue == null ? 1 : currentValue++));
-        }
+			Position p = new Position(x, y);
+			Integer currentValue = locations.get(p);
+			locations.put(p, (currentValue == null ? 1 : currentValue++));
+		}
 
-        return locations;
-    }
+		return locations;
+	}
 
-    @Override
-    public String part1(List<String> input) {
-        List<String> tokens = new ArrayList<>(Arrays.asList(input.get(0).split("")));
+	@Override
+	public String part1(List<String> input) {
+		List<String> tokens = new ArrayList<>(Arrays.asList(input.get(0).split("")));
 
-        Map<Position, Integer> locations = new HashMap<>();
-        locations.put(new Position(0, 0), 1);
+		Map<Position, Integer> locations = new HashMap<>();
+		locations.put(new Position(0, 0), 1);
 
-        locations.putAll(performSteps(tokens));
+		locations.putAll(performSteps(tokens));
 
-        return String.valueOf(locations.size());
-    }
+		return String.valueOf(locations.size());
+	}
 
-    @Override
-    public String part2(List<String> input) {
-        List<String> tokens = new ArrayList<>(Arrays.asList(input.get(0).split("")));
+	@Override
+	public String part2(List<String> input) {
+		List<String> tokens = new ArrayList<>(Arrays.asList(input.get(0).split("")));
 
-        Map<Position, Integer> locations = new HashMap<>();
-        locations.put(new Position(0, 0), 1);
+		Map<Position, Integer> locations = new HashMap<>();
+		locations.put(new Position(0, 0), 1);
 
-        List<String> santaInstructions = IntStream
-            .range(0, tokens.size())
-            .filter(n -> n % 2 == 0)
-            .mapToObj(tokens::get)
-            .collect(Collectors.toList());
+		List<String> santaInstructions = IntStream.range(0, tokens.size()).filter(n -> n % 2 == 0).mapToObj(tokens::get)
+				.collect(Collectors.toList());
 
-        List<String> roboInstructions = IntStream
-            .range(0, tokens.size())
-            .filter(n -> n % 2 != 0)
-            .mapToObj(tokens::get)
-            .collect(Collectors.toList());
+		List<String> roboInstructions = IntStream.range(0, tokens.size()).filter(n -> n % 2 != 0).mapToObj(tokens::get)
+				.collect(Collectors.toList());
 
-        locations.putAll(performSteps(santaInstructions));
-        locations.putAll(performSteps(roboInstructions));
+		locations.putAll(performSteps(santaInstructions));
+		locations.putAll(performSteps(roboInstructions));
 
-        return String.valueOf(locations.size());
-    }
+		return String.valueOf(locations.size());
+	}
 
 }
