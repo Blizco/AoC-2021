@@ -6,7 +6,7 @@
 |----------+---------+-----------+--------+----------|
 | 01/01/20 | 2015-01 | x         | x      | x        |
 | 01/03/20 | 2015-02 | x         | x      | x        |
-| 01/06/20 | 2015-03 | x         |        |          |
+| 01/06/20 | 2015-03 | x         | x      | x        |
 | 01/09/20 | 2015-04 | x         |        |          |
 | 01/11/20 | 2015-05 | x         |        |          |
 | 01/14/20 | 2015-06 | x         |        |          |
@@ -159,3 +159,13 @@
 ** 4
 
 https://www.howtobuildsoftware.com/index.php/how-do/cPI/java-integer-byte-short-typeconverter-how-to-convert-negative-byte-value-to-either-short-or-integer
+
+** Notes
+
+#+BEGIN_QUOTE
+Solving puzzle 3 of 2015. Using Project Lombok and Java Streams (IntStream / filter).
+
+I have taken the challenge to complete all of the Advent of Code puzzles (2015 - 2019) before Advent of Code 2020 starts. This is AoC 2015 puzzle 02.
+
+Repository: https://gitlab.com/buildfunthings/adventofcode
+#+END_QUOTE
