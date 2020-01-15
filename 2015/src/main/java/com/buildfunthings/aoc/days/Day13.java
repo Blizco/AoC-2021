@@ -44,13 +44,12 @@ public class Day13 implements Day {
     Map<String, Map<String, Integer>> loveHate = new HashMap<>();
     // Maintain a list of guests
     List<String> guests = new ArrayList<>();
-    
+
     public void processLoveHate(List<String> input) {
         /*
-          0     1     2    3  4         5     6  7       8    9  10        
-          Alice would gain 54 happiness units by sitting next to Bob.
-          Alice would lose 81 happiness units by sitting next to Carol.
-        */
+         * 0 1 2 3 4 5 6 7 8 9 10 Alice would gain 54 happiness units by sitting next to
+         * Bob. Alice would lose 81 happiness units by sitting next to Carol.
+         */
 
         // Parse the instructios into our map
         for (String instruction : input) {
@@ -58,6 +57,7 @@ public class Day13 implements Day {
             String[] parts = instruction.substring(0, instruction.length() - 1).split(" ");
             Map<String, Integer> currentLoveHate = loveHate.getOrDefault(parts[0], new HashMap<>());
             Integer value = Integer.parseInt(parts[3]);
+
             currentLoveHate.put(parts[10], parts[2].equals("gain") ? value : -value);
 
             if (!guests.contains(parts[0]))
@@ -75,47 +75,36 @@ public class Day13 implements Day {
         return change;
     }
 
-	@Override
-	public String part1(List<String> input) {
-        processLoveHate(input);
-        List<String[]> perms = permuteAllIterative(guests.size(), guests.toArray(new String[0]));
+    public int determineHappiness() {
+        List<String[]> permutations = permuteAllIterative(guests.size(), guests.toArray(new String[0]));
 
         int mostHappy = 0;
-        for (String[] p : perms) {
+        for (String[] p : permutations) {
             int happy = 0;
             for (int i = 0; i < p.length - 1; i++) {
-                happy += loveHate.get(p[i]).get(p[i + 1]);
-                happy += loveHate.get(p[i+1]).get(p[i]);
+                happy += getChange(p[i], p[i + 1]);
             }
-            happy += loveHate.get(p[0]).get(p[p.length-1]);
-            happy += loveHate.get(p[p.length - 1]).get(p[0]);
-            
+            happy += getChange(p[0], p[p.length - 1]);
+
             if (happy > mostHappy)
                 mostHappy = happy;
         }
-    
-		return String.valueOf(mostHappy);
-	}
+        return mostHappy;
+    }
 
-	@Override
-	public String part2(List<String> input) {
+    @Override
+    public String part1(List<String> input) {
+        processLoveHate(input);
+
+        return String.valueOf(determineHappiness());
+    }
+
+    @Override
+    public String part2(List<String> input) {
         processLoveHate(input);
         guests.add("Arjen");
-        List<String[]> perms = permuteAllIterative(guests.size(), guests.toArray(new String[0]));
 
-        int mostHappy = 0;
-        for (String[] p : perms) {
-            int happy = 0;
-            for (int i = 0; i < p.length - 1; i++) {
-                happy += getChange(p[i], p[i+1]);
-            }
-            happy += getChange(p[0], p[p.length-1]);
-            
-            if (happy > mostHappy)
-                mostHappy = happy;
-        }
-    
-		return String.valueOf(mostHappy);
-	}
-    
+        return String.valueOf(determineHappiness());
+    }
+
 }
