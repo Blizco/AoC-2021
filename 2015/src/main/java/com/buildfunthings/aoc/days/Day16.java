@@ -65,78 +65,60 @@ public class Day16 implements Day {
     }
 
     Pattern p = Pattern.compile("^Sue (.*?): (.+): (.+), (.+): (.+), (.+): (.+)");
+
+    List<Sue> parseSue(List<String> input) {
+        List<Sue> output = new ArrayList<>();
+        for (String s : input) {
+            //System.out.println(s);
+            Matcher m = p.matcher(s);
+
+            if (m.find()) {
+                Sue possible = new Sue(Integer.parseInt(m.group(1)));
+                for (int i = 2; i <= m.groupCount(); i += 2) {
+                    possible.addProp(m.group(i), Integer.parseInt(m.group(i+1)));
+                }
+                output.add(possible);
+            }
+        }
+
+        return output;
+    }
+
+    Sue target = new Sue(0) {{
+        addProp("children", 3);
+        addProp("cats", 7);
+        addProp("samoyeds", 2);
+        addProp("pomeranians", 3);
+        addProp("akitas", 0);
+        addProp("vizslas", 0);
+        addProp("goldfish", 5);
+        addProp("trees", 3);
+        addProp("cars", 2);
+        addProp("perfumes", 1);
+    }};
     
 	@Override
 	public String part1(List<String> input) {
-        Sue target = new Sue(0);
-        target.addProp("children", 3);
-        target.addProp("cats", 7);
-        target.addProp("samoyeds", 2);
-        target.addProp("pomeranians", 3);
-        target.addProp("akitas", 0);
-        target.addProp("vizslas", 0);
-        target.addProp("goldfish", 5);
-        target.addProp("trees", 3);
-        target.addProp("cars", 2);
-        target.addProp("perfumes", 1);
-        
-        for (String s : input) {
-            //System.out.println(s);
-            Matcher m = p.matcher(s);
 
-            if (m.find()) {
-                Sue possible = new Sue(Integer.parseInt(m.group(1)));
-                for (int i = 2; i <= m.groupCount(); i += 2) {
-                    possible.addProp(m.group(i), Integer.parseInt(m.group(i+1)));
-                }
-                if (possible.isEqualToSue(target)) {
-                    return String.valueOf(possible.nr);
-                }
+        List<Sue> sues = parseSue(input);
+        
+        for (Sue s : sues) {
+            if (s.isEqualToSue(target)) {
+                return String.valueOf(s.nr);
             }
-        }
+        }        
 		return null;
 	}
 
 	@Override
-	public String part2(List<String> input) {
-        Sue target = new Sue(0);
-        target.addProp("children", 3);
-        target.addProp("cats", 7);
-        target.addProp("samoyeds", 2);
-        target.addProp("pomeranians", 3);
-        target.addProp("akitas", 0);
-        target.addProp("vizslas", 0);
-        target.addProp("goldfish", 5);
-        target.addProp("trees", 3);
-        target.addProp("cars", 2);
-        target.addProp("perfumes", 1);
+	public String part2(List<String> input) {        
+        List<Sue> sues = parseSue(input);
         
-        for (String s : input) {
-            //System.out.println(s);
-            Matcher m = p.matcher(s);
-
-            if (m.find()) {
-                Sue possible = new Sue(Integer.parseInt(m.group(1)));
-                for (int i = 2; i <= m.groupCount(); i += 2) {
-                    possible.addProp(m.group(i), Integer.parseInt(m.group(i+1)));
-                }
-                if (possible.isEqualToSuePart2(target)) {
-                    return String.valueOf(possible.nr);
-                }
+        for (Sue s : sues) {
+            if (s.isEqualToSuePart2(target)) {
+                return String.valueOf(s.nr);
             }
         }
 		return null;
-	}
-
-    // mvn exec:java -Dexec.mainClass="com.buildfunthings.aoc.days.Day16"
-    public static void main(String[] args) {
-        Day16 d = new Day16();
-        List<String> input = new ArrayList<>() {{
-                add("Sue 1: cars: 2, akitas: 0, goldfish: 5");
-                add("Sue 2: akitas: 9, children: 3, samoyeds: 9");
-            }
-        };
-        d.part1(input);
-    }
-    
+	}    
 }
