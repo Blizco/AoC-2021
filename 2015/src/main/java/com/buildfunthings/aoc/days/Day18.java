@@ -1,14 +1,18 @@
 package com.buildfunthings.aoc.days;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import com.buildfunthings.aoc.common.Day;
 
 public class Day18 implements Day {
 
     int[][] createGrid(int size) {
-        return new int[size][size];
+        int[][] grid = new int[size][size];
+        for (int row = 0; row < size; row++) {
+            Arrays.fill(grid[row], 0);
+        }
+        return grid;
     }
 
     void setGridState(int[][] grid, List<String> state) {
