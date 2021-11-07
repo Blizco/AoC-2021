@@ -7,21 +7,17 @@ import java.util.stream.Collectors;
 import com.buildfunthings.aoc.common.Day;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.Getter;
 
 public class Day14 implements Day<Integer> {
 
     @AllArgsConstructor
-    @ToString
-    @EqualsAndHashCode
-    @Data
     class Reindeer {
         String name;
         int km;
         int sec;
         int rest;
+        @Getter
         int bonus;
         // Vixen can fly 19 km/s for 7 seconds, but then must rest for 124 seconds.
 

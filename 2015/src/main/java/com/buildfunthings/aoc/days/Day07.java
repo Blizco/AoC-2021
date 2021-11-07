@@ -8,10 +8,8 @@ import java.util.function.IntBinaryOperator;
 import com.buildfunthings.aoc.common.Day;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 
 public class Day07 implements Day<Integer> {
     enum Op {
@@ -31,8 +29,6 @@ public class Day07 implements Day<Integer> {
 
     @AllArgsConstructor
     @RequiredArgsConstructor
-    @ToString
-    @EqualsAndHashCode
     public class Wire {
         @NonNull
         String name;
@@ -40,10 +36,7 @@ public class Day07 implements Day<Integer> {
     }
 
     
-    @AllArgsConstructor
     @RequiredArgsConstructor
-    @ToString
-    @EqualsAndHashCode
     public class Gate {
         @NonNull
         String name;
