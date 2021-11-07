@@ -13,7 +13,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-public class Day07 implements Day {
+public class Day07 implements Day<Integer> {
     enum Op {
         AND((x, y) -> (x & y)),
         OR((x, y) -> (x | y)),
@@ -161,13 +161,13 @@ public class Day07 implements Day {
     }
     
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
         createCircuit(input);
-        return String.valueOf(fireWire("a"));
+        return fireWire("a");
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
         wires.clear();
         gates.clear();
         
@@ -183,7 +183,7 @@ public class Day07 implements Day {
         b.result.value = value;
         b.op = null;
         
-        return String.valueOf(fireWire("a"));
+        return fireWire("a");
     }
 
 }

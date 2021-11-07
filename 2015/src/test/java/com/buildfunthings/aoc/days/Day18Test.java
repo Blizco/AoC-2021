@@ -71,8 +71,8 @@ public class Day18Test {
 
     @Test
     public void testRealInput() {
-        Day day = new Day18();
-        assertEquals("768", day.part1(input.getLines()));
-        assertEquals("781", day.part2(input.getLines()));
+        Day<Integer> day = new Day18();
+        assertEquals(Integer.valueOf(768), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(781), day.part2(input.getLines()));
     }
 }

@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-public class Day14 implements Day {
+public class Day14 implements Day<Integer> {
 
     @AllArgsConstructor
     @ToString
@@ -52,13 +52,13 @@ public class Day14 implements Day {
     }
 
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
         int max = input.stream().map(this::fromString).mapToInt(r -> r.distanceAfterSeconds(2503)).max().getAsInt();
-        return String.valueOf(max);
+        return max;
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
         List<Reindeer> race = input.stream().map(this::fromString).collect(Collectors.toList());
         
         // The seconds of the race
@@ -93,7 +93,7 @@ public class Day14 implements Day {
 
         //System.out.println("Winner: " + mostPoints);
         
-        return String.valueOf(mostPoints.getBonus());
+        return mostPoints.getBonus();
     }
 
 }

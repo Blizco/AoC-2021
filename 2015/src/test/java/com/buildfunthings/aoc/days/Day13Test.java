@@ -34,14 +34,14 @@ public class Day13Test {
                 add("David would gain 41 happiness units by sitting next to Carol.");
             }
         };
-        Day day = new Day13();
-        assertEquals("330", day.part1(input));
+        Day<Integer> day = new Day13();
+        assertEquals(Integer.valueOf(330), day.part1(input));
     }
 
     @Test
     public void testRealInput() {
-        Day day = new Day13();
-        assertEquals("709", day.part1(input.getLines()));
-        assertEquals("668", day.part2(input.getLines()));
+        Day<Integer> day = new Day13();
+        assertEquals(Integer.valueOf(709), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(668), day.part2(input.getLines()));
     }
 }

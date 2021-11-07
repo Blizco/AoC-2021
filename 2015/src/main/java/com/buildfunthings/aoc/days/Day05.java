@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day05 implements Day {
+public class Day05 implements Day<Long> {
 
     boolean isNiceString(String entry) {
         int vowels = 0;
@@ -66,13 +66,13 @@ public class Day05 implements Day {
     }
 
     @Override
-    public String part1(List<String> input) {
-        return String.valueOf(input.stream().filter(s -> isNiceString(s)).count());
+    public Long part1(List<String> input) {
+        return input.stream().filter(s -> isNiceString(s)).count();
     }
 
     @Override
-    public String part2(List<String> input) {
-        return String.valueOf(input.stream().filter(s -> isNiceStringNotRidiculous(s)).count());
+    public Long part2(List<String> input) {
+        return input.stream().filter(s -> isNiceStringNotRidiculous(s)).count();
     }
 
 }

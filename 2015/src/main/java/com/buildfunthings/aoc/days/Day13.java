@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day13 implements Day {
+public class Day13 implements Day<Integer> {
     private <T> void swap(T[] input, int a, int b) {
         T tmp = input[a];
         input[a] = input[b];
@@ -92,18 +92,18 @@ public class Day13 implements Day {
     }
 
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
         processLoveHate(input);
 
-        return String.valueOf(determineHappiness());
+        return determineHappiness();
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
         processLoveHate(input);
         guests.add("Arjen");
 
-        return String.valueOf(determineHappiness());
+        return determineHappiness();
     }
 
 }

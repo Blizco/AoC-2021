@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day09 implements Day {
+public class Day09 implements Day<Integer> {
     private void swap(String[] input, int a, int b) {
         String tmp = input[a];
         input[a] = input[b];
@@ -75,7 +75,7 @@ public class Day09 implements Day {
     
     
 	@Override
-	public String part1(List<String> input) {
+	public Integer part1(List<String> input) {
         _cities.clear();
         _paths.clear();
 
@@ -96,34 +96,32 @@ public class Day09 implements Day {
             shortest = Math.min(current, shortest);
         }
         
-		return String.valueOf(shortest);
+		return shortest;
 	}
 
 	@Override
-	public String part2(List<String> input) {
+	public Integer part2(List<String> input) {
         _cities.clear();
         _paths.clear();
 
         List<String[]> permutations = getPermutations(input);
 
-        return String.valueOf(
-                              permutations.stream()
-                              .mapToInt(p -> IntStream.range(0, p.length-1)
-                                        .mapToObj(idxFrom -> _paths.get(p[idxFrom]).get(p[idxFrom + 1]))
-                                        .mapToInt(Integer::intValue)
-                                        .sum())
-                              .max().getAsInt()
-                              );
+        return permutations.stream()
+            .mapToInt(p -> IntStream.range(0, p.length-1)
+                      .mapToObj(idxFrom -> _paths.get(p[idxFrom]).get(p[idxFrom + 1]))
+                      .mapToInt(Integer::intValue)
+                      .sum())
+            .max().getAsInt();
 	}
 
-    public static void main(String[] args) {
-        Day09 d = new Day09();
-        String[] input = new String[] { "A", "B", "C", "D" };
-        List<String[]> perms = d.permuteIterative(input.length, input);
+    // public static void main(String[] args) {
+    //     Day09 d = new Day09();
+    //     String[] input = new String[] { "A", "B", "C", "D" };
+    //     List<String[]> perms = d.permuteIterative(input.length, input);
 
-        for (String[] p : perms) {
-            System.out.println(p[0] + p[1] + p[2] + p[3]);
-        }
-    }
+    //     for (String[] p : perms) {
+    //         System.out.println(p[0] + p[1] + p[2] + p[3]);
+    //     }
+    // }
     
 }

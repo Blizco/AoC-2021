@@ -19,14 +19,14 @@ public class Day04Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {{
-                put("abcdef", "609043");
-                put("pqrstuv", "1048970");
+        Map<String, Integer> tests = new HashMap<>() {{
+                put("abcdef", 609043);
+                put("pqrstuv", 1048970);
             }
             };
 
         for (String k : tests.keySet()) {
-            Day day = new Day04();
+            Day<Integer> day = new Day04();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {{ add(k); }}));
         }
     }
@@ -37,8 +37,8 @@ public class Day04Test {
 
     @Test
     public void testRealInput() {
-        Day day = new Day04();
-        assertEquals("282749", day.part1(input.getLines()));
-        assertEquals("9962624", day.part2(input.getLines()));
+        Day<Integer> day = new Day04();
+        assertEquals(Integer.valueOf(282749), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(9962624), day.part2(input.getLines()));
     }
 }

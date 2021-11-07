@@ -14,7 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-public class Day03 implements Day {
+public class Day03 implements Day<Integer> {
 	@AllArgsConstructor
 	@ToString
 	@EqualsAndHashCode
@@ -52,7 +52,7 @@ public class Day03 implements Day {
 	}
 
 	@Override
-	public String part1(List<String> input) {
+	public Integer part1(List<String> input) {
 		List<String> tokens = new ArrayList<>(Arrays.asList(input.get(0).split("")));
 
 		Map<Position, Integer> locations = new HashMap<>();
@@ -60,11 +60,11 @@ public class Day03 implements Day {
 
 		locations.putAll(performSteps(tokens));
 
-		return String.valueOf(locations.size());
+		return locations.size();
 	}
 
 	@Override
-	public String part2(List<String> input) {
+	public Integer part2(List<String> input) {
 		List<String> tokens = new ArrayList<>(Arrays.asList(input.get(0).split("")));
 
 		Map<Position, Integer> locations = new HashMap<>();
@@ -79,7 +79,7 @@ public class Day03 implements Day {
 		locations.putAll(performSteps(santaInstructions));
 		locations.putAll(performSteps(roboInstructions));
 
-		return String.valueOf(locations.size());
+		return locations.size();
 	}
 
 }

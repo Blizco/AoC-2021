@@ -19,41 +19,41 @@ public class Day08Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {{
-                put("\"\"", "2"); // 2 chars - 0 actual
-                put("\"abc\"", "2"); // 5 chars - 3 actual
-                put("\"aaa\\\"aaa\"", "3"); // 10 chars - 7 actual
-                put("\"\\x27\"", "5"); // 6 chars - 1 actual
+        Map<String, Integer> tests = new HashMap<>() {{
+                put("\"\"", 2); // 2 chars - 0 actual
+                put("\"abc\"", 2); // 5 chars - 3 actual
+                put("\"aaa\\\"aaa\"", 3); // 10 chars - 7 actual
+                put("\"\\x27\"", 5); // 6 chars - 1 actual
             }
             };
 
         for (String k : tests.keySet()) {
-            Day day = new Day08();
+            Day<Integer> day = new Day08();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {{ add(k); }}));
         }
     }
 
     @Test
     public void testSampleInput2() {
-        Map<String, String> tests = new HashMap<>() {{
-                put("\"abc\"", "4");
-                put("\"aaa\\\"aaa\"", "6");
-                put("\"\"", "4");
-                put("\"\\x27\"", "5");
-                put("\"\\\\\\\"", "7");
+        Map<String, Integer> tests = new HashMap<>() {{
+                put("\"abc\"", 4);
+                put("\"aaa\\\"aaa\"", 6);
+                put("\"\"", 4);
+                put("\"\\x27\"", 5);
+                put("\"\\\\\\\"", 7);
             }
             };
 
         for (String k : tests.keySet()) {
-            Day day = new Day08();
+            Day<Integer> day = new Day08();
             assertEquals(tests.get(k), day.part2(new ArrayList<String>() {{ add(k); }}));
         }
     }
 
     @Test
     public void testRealInput() {
-        Day day = new Day08();
-        assertEquals("1333", day.part1(input.getLines()));
-        assertEquals("2046", day.part2(input.getLines()));
+        Day<Integer> day = new Day08();
+        assertEquals(Integer.valueOf(1333), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(2046), day.part2(input.getLines()));
     }
 }

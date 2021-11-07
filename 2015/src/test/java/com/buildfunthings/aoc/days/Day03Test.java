@@ -19,16 +19,16 @@ public class Day03Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {
+        Map<String, Integer> tests = new HashMap<>() {
             {
-                put(">", "2");
-                put("^>v<", "4");
-                put("^v^v^v^v^v", "2");
+                put(">", 2);
+                put("^>v<", 4);
+                put("^v^v^v^v^v", 2);
             }
         };
 
         for (String k : tests.keySet()) {
-            Day day = new Day03();
+            Day<Integer> day = new Day03();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {
                 {
                     add(k);
@@ -39,16 +39,16 @@ public class Day03Test {
 
     @Test
     public void testSampleInput2() {
-        Map<String, String> tests = new HashMap<>() {
+        Map<String, Integer> tests = new HashMap<>() {
             {
-                put("^v", "3");
-                put("^>v<", "3");
-                put("^v^v^v^v^v", "11");
+                put("^v", 3);
+                put("^>v<", 3);
+                put("^v^v^v^v^v", 11);
             }
         };
 
         for (String k : tests.keySet()) {
-            Day day = new Day03();
+            Day<Integer> day = new Day03();
             assertEquals(tests.get(k), day.part2(new ArrayList<String>() {
                 {
                     add(k);
@@ -59,8 +59,8 @@ public class Day03Test {
 
     @Test
     public void testRealInput() {
-        Day day = new Day03();
-        assertEquals("2081", day.part1(input.getLines()));
-        assertEquals("2341", day.part2(input.getLines()));
+        Day<Integer> day = new Day03();
+        assertEquals(Integer.valueOf(2081), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(2341), day.part2(input.getLines()));
     }
 }

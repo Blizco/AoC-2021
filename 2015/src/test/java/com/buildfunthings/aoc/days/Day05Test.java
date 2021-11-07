@@ -19,18 +19,18 @@ public class Day05Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {
+        Map<String, Long> tests = new HashMap<>() {
             {
-                put("ugknbfddgicrmopn", "1");
-                put("aaa", "1");
-                put("jchzalrnumimnmhp", "0");
-                put("haegwjzuvuyypxyu", "0");
-                put("dvszwmarrgswjxmb", "0");
+                put("ugknbfddgicrmopn", 1L);
+                put("aaa", 1L);
+                put("jchzalrnumimnmhp", 0L);
+                put("haegwjzuvuyypxyu", 0L);
+                put("dvszwmarrgswjxmb", 0L);
             }
         };
 
         for (String k : tests.keySet()) {
-            Day day = new Day05();
+            Day<Long> day = new Day05();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {
                 {
                     add(k);
@@ -41,17 +41,17 @@ public class Day05Test {
 
     @Test
     public void testSampleInput2() {
-        Map<String, String> tests = new HashMap<>() {
+        Map<String, Long> tests = new HashMap<>() {
             {
-                put("qjhvhtzxzqqjkmpb", "1");
-                put("xxyxx", "1");
-                put("uurcxstgmygtbstg", "0");
-                put("ieodomkazucvgmuy", "0");
+                put("qjhvhtzxzqqjkmpb", 1L);
+                put("xxyxx", 1L);
+                put("uurcxstgmygtbstg", 0L);
+                put("ieodomkazucvgmuy", 0L);
             }
         };
 
         for (String k : tests.keySet()) {
-            Day day = new Day05();
+            Day<Long> day = new Day05();
             assertEquals(tests.get(k), day.part2(new ArrayList<String>() {
                 {
                     add(k);
@@ -62,8 +62,8 @@ public class Day05Test {
 
     @Test
     public void testRealInput() {
-        Day day = new Day05();
-        assertEquals("236", day.part1(input.getLines()));
-        assertEquals("51", day.part2(input.getLines()));
+        Day<Long> day = new Day05();
+        assertEquals(Long.valueOf(236), day.part1(input.getLines()));
+        assertEquals(Long.valueOf(51), day.part2(input.getLines()));
     }
 }

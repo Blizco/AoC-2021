@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day02 implements Day {
+public class Day02 implements Day<Integer> {
 
     private int calculateWrapping(String[] parts) {
         int[] p = Arrays.stream(parts).mapToInt(e -> Integer.valueOf(e)).toArray();
@@ -44,17 +44,17 @@ public class Day02 implements Day {
     }
 
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
         int order = processEntry(input, 1);
 
-        return String.valueOf(order);
+        return order;
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
         int order = processEntry(input, 2);
 
-        return String.valueOf(order);
+        return order;
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day01 implements Day {
+public class Day01 implements Day<Integer> {
 
     private int countFloors(String input) {
         int floor = 0;
@@ -37,14 +37,14 @@ public class Day01 implements Day {
         return floor;
     }
 
-	@Override
-	public String part1(List<String> input) {
-		return String.valueOf(countFloors(input.get(0)));
-	}
+    @Override
+    public Integer part1(List<String> input) {
+        return countFloors(input.get(0));
+    }
 
-	@Override
-	public String part2(List<String> input) {
-		return String.valueOf(hitBasement(input.get(0)));
-	}
+    @Override
+    public Integer part2(List<String> input) {
+        return hitBasement(input.get(0));
+    }
 
 }

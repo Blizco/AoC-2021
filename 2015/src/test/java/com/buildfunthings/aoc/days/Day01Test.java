@@ -19,42 +19,39 @@ public class Day01Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {{
-                put("(())", "0");
-                put("()()", "0");
-                put("(((", "3");
-                put("(()(()(", "3");
-                put("))(((((", "3");
-                put("())", "-1");
-                put("))(", "-1");
-
-            }
-            };
+        Map<String, Integer> tests = new HashMap<>() {{
+                put("(())", 0);
+                put("()()", 0);
+                put("(((", 3);
+                put("(()(()(", 3);
+                put("))(((((", 3);
+                put("())", -1);
+                put("))(", -1);
+            }};
 
         for (String k : tests.keySet()) {
-            Day day = new Day01();
+            Day<Integer> day = new Day01();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {{ add(k); }}));
         }
     }
 
     @Test
     public void testSampleInput2() {
-        Map<String, String> tests = new HashMap<>() {{
-                put(")", "1");
-                put("()())", "5");
-            }
-            };
+        Map<String, Integer> tests = new HashMap<>() {{
+                put(")", 1);
+                put("()())", 5);
+            }};
 
         for (String k : tests.keySet()) {
-            Day day = new Day01();
+            Day<Integer> day = new Day01();
             assertEquals(tests.get(k), day.part2(new ArrayList<String>() {{ add(k); }}));
         }
     }
 
     @Test
     public void testRealInput() {
-        Day day = new Day01();
-        assertEquals("74", day.part1(input.getLines()));
-        assertEquals("1795", day.part2(input.getLines()));
+        Day<Integer> day = new Day01();
+        assertEquals(Integer.valueOf(74), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(1795), day.part2(input.getLines()));
     }
 }

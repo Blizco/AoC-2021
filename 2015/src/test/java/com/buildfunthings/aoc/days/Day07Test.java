@@ -20,16 +20,16 @@ public class Day07Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {
+        Map<String, Integer> tests = new HashMap<>() {
             {
-                put("d", "72");
-                put("e", "507");
-                put("f", "492");
-                put("g", "114");
-                put("h", "65412");
-                put("i", "65079");
-                put("x", "123");
-                put("y", "456");
+                put("d", 72);
+                put("e", 507);
+                put("f", 492);
+                put("g", 114);
+                put("h", 65412);
+                put("i", 65079);
+                put("x", 123);
+                put("y", 456);
             }
         };
 
@@ -52,14 +52,14 @@ public class Day07Test {
             app.wires.clear();
             app.gates.clear();
             app.createCircuit(input);
-            assertEquals(tests.get(key), String.valueOf(app.fireWire(key)));
+            assertEquals(tests.get(key), Integer.valueOf(app.fireWire(key)));
         }
     }    
 
     @Test
     public void testRealInput() {
-        Day day = new Day07();
-        assertEquals("46065", day.part1(input.getLines()));
-        assertEquals("14134", day.part2(input.getLines()));
+        Day<Integer> day = new Day07();
+        assertEquals(Integer.valueOf(46065), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(14134), day.part2(input.getLines()));
     }
 }

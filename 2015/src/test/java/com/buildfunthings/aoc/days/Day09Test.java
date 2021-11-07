@@ -24,8 +24,8 @@ public class Day09Test {
                 add("Dublin to Belfast = 141");
             }};
 
-        Day sut = new Day09();
-        assertEquals("605", sut.part1(input));
+        Day<Integer> sut = new Day09();
+        assertEquals(Integer.valueOf(605), sut.part1(input));
     }
 
     @Test
@@ -36,14 +36,14 @@ public class Day09Test {
                 add("Dublin to Belfast = 141");
             }};
 
-        Day sut = new Day09();
-        assertEquals("982", sut.part2(input));
+        Day<Integer> sut = new Day09();
+        assertEquals(Integer.valueOf(982), sut.part2(input));
     }
 
     @Test
     public void testRealInput() {
-        Day day = new Day09();
-        assertEquals("117", day.part1(input.getLines()));
-        assertEquals("909", day.part2(input.getLines()));
+        Day<Integer> day = new Day09();
+        assertEquals(Integer.valueOf(117), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(909), day.part2(input.getLines()));
     }
 }

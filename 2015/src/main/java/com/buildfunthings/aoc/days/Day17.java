@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day17 implements Day {
+public class Day17 implements Day<Long> {
 
     int[][] combinations(int[] input) {
         int len = input.length;
@@ -55,19 +55,19 @@ public class Day17 implements Day {
     }
     
 	@Override
-	public String part1(List<String> input) {
+	public Long part1(List<String> input) {
         int[] in = input.stream().mapToInt(s -> Integer.parseInt(s)).toArray();
         int[][] combos = combinations(in);
         
-		return String.valueOf(countOfCombinedValue(combos, 150));
+		return countOfCombinedValue(combos, 150);
 	}
 
 	@Override
-	public String part2(List<String> input) {
+	public Long part2(List<String> input) {
         int[] in = input.stream().mapToInt(s -> Integer.parseInt(s)).toArray();
         int[][] combos = combinations(in);
 
-		return String.valueOf(countOfContainersToSpare(combos, 150));
+		return countOfContainersToSpare(combos, 150);
 	}
     
 }

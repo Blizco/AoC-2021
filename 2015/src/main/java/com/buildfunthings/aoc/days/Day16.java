@@ -9,16 +9,19 @@ import java.util.regex.Pattern;
 
 import com.buildfunthings.aoc.common.Day;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-public class Day16 implements Day {
+public class Day16 implements Day<Integer> {
 
     @ToString
     @RequiredArgsConstructor
     class Sue {
-        @NonNull
+        
+        public Sue(int nr) {
+            this.nr = nr;
+        }
+
         int nr;
         Map<String, Integer> props = new HashMap<>();
 
@@ -98,25 +101,25 @@ public class Day16 implements Day {
     };
 
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
 
         List<Sue> sues = parseSue(input);
 
         for (Sue s : sues) {
             if (s.isEqualToSue(target, 1)) {
-                return String.valueOf(s.nr);
+                return s.nr;
             }
         }
         return null;
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
         List<Sue> sues = parseSue(input);
 
         for (Sue s : sues) {
             if (s.isEqualToSue(target, 2)) {
-                return String.valueOf(s.nr);
+                return s.nr;
             }
         }
         return null;

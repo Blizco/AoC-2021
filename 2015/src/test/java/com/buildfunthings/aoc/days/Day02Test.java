@@ -19,15 +19,15 @@ public class Day02Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {
+        Map<String, Integer> tests = new HashMap<>() {
             {
-                put("2x3x4", "58");
-                put("1x1x10", "43");
+                put("2x3x4", 58);
+                put("1x1x10", 43);
             }
         };
 
         for (String k : tests.keySet()) {
-            Day day = new Day02();
+            Day<Integer> day = new Day02();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {
                 {
                     add(k);
@@ -38,15 +38,15 @@ public class Day02Test {
 
     @Test
     public void testSampleInput2() {
-        Map<String, String> tests = new HashMap<>() {
+        Map<String, Integer> tests = new HashMap<>() {
             {
-                put("2x3x4", "34");
-                put("1x1x10", "14");
+                put("2x3x4", 34);
+                put("1x1x10", 14);
             }
         };
 
         for (String k : tests.keySet()) {
-            Day day = new Day02();
+            Day<Integer> day = new Day02();
             assertEquals(tests.get(k), day.part2(new ArrayList<String>() {
                 {
                     add(k);
@@ -57,8 +57,8 @@ public class Day02Test {
 
     @Test
     public void testRealInput() {
-        Day day = new Day02();
-        assertEquals("1598415", day.part1(input.getLines()));
-        assertEquals("3812909", day.part2(input.getLines()));
+        Day<Integer> day = new Day02();
+        assertEquals(Integer.valueOf(1598415), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(3812909), day.part2(input.getLines()));
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day18 implements Day {
+public class Day18 implements Day<Integer> {
 
     int[][] createGrid(int size) {
         int[][] grid = new int[size][size];
@@ -94,7 +94,7 @@ public class Day18 implements Day {
     }
 
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
         int[][] grid = createGrid(100);
         setGridState(grid, input);
         // printGrid(grid);
@@ -105,11 +105,11 @@ public class Day18 implements Day {
             grid = ev1;
         }
 
-        return String.valueOf(countOn(grid));
+        return countOn(grid);
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
         int[][] grid = createGrid(100);
         setGridState(grid, input);
         // printGrid(grid);
@@ -120,7 +120,7 @@ public class Day18 implements Day {
             grid = ev1;
         }
 
-        return String.valueOf(countOn(grid));
+        return countOn(grid);
     }
 
 }

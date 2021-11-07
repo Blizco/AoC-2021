@@ -2,7 +2,6 @@ package com.buildfunthings.aoc.days;
 
 import static org.junit.Assert.assertEquals;
 
-import com.buildfunthings.aoc.common.Day;
 import com.buildfunthings.aoc.common.DayInputExternalResource;
 
 import org.junit.Rule;
@@ -36,8 +35,8 @@ public class Day17Test {
 
     @Test
     public void testRealInput() {
-        Day day = new Day17();
-        assertEquals("4372", day.part1(input.getLines()));
-        assertEquals("4", day.part2(input.getLines()));
+        Day17 day = new Day17();
+        assertEquals(Long.valueOf(4372), day.part1(input.getLines()));
+        assertEquals(Long.valueOf(4), day.part2(input.getLines()));
     }
 }

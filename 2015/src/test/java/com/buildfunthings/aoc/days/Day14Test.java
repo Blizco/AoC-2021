@@ -20,14 +20,14 @@ public class Day14Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {{
-                put("Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds.", "2660");
-                put("Dancer can fly 16 km/s for 11 seconds, but then must rest for 162 seconds.", "2640");
+        Map<String, Integer> tests = new HashMap<>() {{
+                put("Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds.", 2660);
+                put("Dancer can fly 16 km/s for 11 seconds, but then must rest for 162 seconds.", 2640);
             }
             };
 
         for (String k : tests.keySet()) {
-            Day day = new Day14();
+            Day<Integer> day = new Day14();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {{ add(k); }}));
         }
 
@@ -37,8 +37,8 @@ public class Day14Test {
             }
         };
 
-        Day day = new Day14();
-        assertEquals("2660", day.part1(testcase));
+        Day<Integer> day = new Day14();
+        assertEquals(Integer.valueOf(2660), day.part1(testcase));
     }
 
     @Test
@@ -49,14 +49,14 @@ public class Day14Test {
             }
         };
 
-        Day day = new Day14();
-        assertEquals("1564", day.part2(testcase));
+        Day<Integer> day = new Day14();
+        assertEquals(Integer.valueOf(1564), day.part2(testcase));
     }
 
     @Test
     public void testRealInput() {
-        Day day = new Day14();
-        assertEquals("2660", day.part1(input.getLines()));
-        assertEquals("1256", day.part2(input.getLines()));
+        Day<Integer> day = new Day14();
+        assertEquals(Integer.valueOf(2660), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(1256), day.part2(input.getLines()));
     }
 }

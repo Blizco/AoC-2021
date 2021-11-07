@@ -6,7 +6,7 @@ import com.buildfunthings.aoc.common.Day;
 
 import lombok.ToString;
 
-public class Day06 implements Day {
+public class Day06 implements Day<Integer> {
     enum OPERATION {
         TOGGLE, TURN_ON, TURN_OFF
     }
@@ -108,25 +108,25 @@ public class Day06 implements Day {
     }
     
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
         int[][] grid = new int[1000][1000];
 
         for (String in : input) {
             applyInstruction(parseInstruction(in), grid);
         }
         
-        return String.valueOf(sumLights(grid));
+        return sumLights(grid);
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
         int[][] grid = new int[1000][1000];
 
         for (String in : input) {
             applyInstruction2(parseInstruction(in), grid);
         }
         
-        return String.valueOf(sumLights(grid));
+        return sumLights(grid);
     }
 
 }

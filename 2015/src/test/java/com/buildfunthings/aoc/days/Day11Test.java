@@ -68,7 +68,7 @@ public class Day11Test {
             };
 
         for (String k : tests.keySet()) {
-            Day day = new Day11();
+            Day<String> day = new Day11();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {{ add(k); }}));
         }
     }
@@ -79,7 +79,7 @@ public class Day11Test {
 
     @Test
     public void testRealInput() {
-        Day day = new Day11();
+        Day<String> day = new Day11();
         assertEquals("vzbxxyzz", day.part1(input.getLines()));
         assertEquals("vzcaabcc", day.part2(input.getLines()));
     }

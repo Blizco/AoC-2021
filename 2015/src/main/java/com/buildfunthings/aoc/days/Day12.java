@@ -9,10 +9,10 @@ import com.buildfunthings.aoc.common.Day;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Day12 implements Day {
+public class Day12 implements Day<Integer> {
 
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
         String json = input.get(0);
 
         Pattern pattern = Pattern.compile("-?[0-9]+");
@@ -23,7 +23,7 @@ public class Day12 implements Day {
             String match = matcher.group();
             sum += Integer.parseInt(match);
         }
-        return String.valueOf(sum);
+        return sum;
     }
 
     boolean isRed(JsonNode node) {
@@ -60,17 +60,17 @@ public class Day12 implements Day {
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
             JsonNode js = mapper.readTree(input.get(0));
-            return String.valueOf(doJsonSum(js, 0));
+            return doJsonSum(js, 0);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         
-        return "0";
+        return 0;
     }
 
 }

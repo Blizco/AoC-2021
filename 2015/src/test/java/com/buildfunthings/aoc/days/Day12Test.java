@@ -19,39 +19,39 @@ public class Day12Test {
 
     @Test
     public void testSampleInput1() {
-        Map<String, String> tests = new HashMap<>() {{
-                put("[1,2,3]", "6");
-                put("{\"a\":2,\"b\":4}", "6");
-                put("{\"a\":2,\"b\":4}", "6");
-                put("{\"a\":[-1,1]}", "0");
+        Map<String, Integer> tests = new HashMap<>() {{
+                put("[1,2,3]", 6);
+                put("{\"a\":2,\"b\":4}", 6);
+                put("{\"a\":2,\"b\":4}", 6);
+                put("{\"a\":[-1,1]}", 0);
             }
             };
 
         for (String k : tests.keySet()) {
-            Day day = new Day12();
+            Day<Integer> day = new Day12();
             assertEquals(tests.get(k), day.part1(new ArrayList<String>() {{ add(k); }}));
         }
     }
 
     @Test
     public void testSampleInput2() {
-        Map<String, String> tests = new HashMap<>() {{
-                put("[1,2,3]", "6");
-                put("{\"d\":\"red\",\"e\":[1,2,3,4],\"f\":5}", "0");
-                put("[1,\"red\",5]", "6");
+        Map<String, Integer> tests = new HashMap<>() {{
+                put("[1,2,3]", 6);
+                put("{\"d\":\"red\",\"e\":[1,2,3,4],\"f\":5}", 0);
+                put("[1,\"red\",5]", 6);
             }
             };
 
         for (String k : tests.keySet()) {
-            Day day = new Day12();
+            Day<Integer> day = new Day12();
             assertEquals(tests.get(k), day.part2(new ArrayList<String>() {{ add(k); }}));
         }
     }
 
     @Test
     public void testRealInput() {
-        Day day = new Day12();
-        assertEquals("119433", day.part1(input.getLines()));
-        assertEquals("68466", day.part2(input.getLines()));
+        Day<Integer> day = new Day12();
+        assertEquals(Integer.valueOf(119433), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(68466), day.part2(input.getLines()));
     }
 }

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day11 implements Day {
+public class Day11 implements Day<String> {
 
     boolean containsStraight(String candidate) {
         return Pattern.matches(".*(abc|bcd|cde|def|efg|fgh|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz).*", candidate);

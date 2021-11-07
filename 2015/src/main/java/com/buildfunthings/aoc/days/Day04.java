@@ -6,10 +6,10 @@ import java.util.List;
 
 import com.buildfunthings.aoc.common.Day;
 
-public class Day04 implements Day {
+public class Day04 implements Day<Integer> {
 
     @Override
-    public String part1(List<String> input) {
+    public Integer part1(List<String> input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
 
@@ -21,7 +21,7 @@ public class Day04 implements Day {
                 byte[] digest = md.digest();
                 
                 if (digest[0] == 0 && digest[1] == 0 && (digest[2] & 0xFF) < 0x10) {
-                    return String.valueOf(i);                    
+                    return i;
                 }
                 ++i;
             } while (true);
@@ -33,7 +33,7 @@ public class Day04 implements Day {
     }
 
     @Override
-    public String part2(List<String> input) {
+    public Integer part2(List<String> input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
 
@@ -45,7 +45,7 @@ public class Day04 implements Day {
                 byte[] digest = md.digest();
                 
                 if (digest[0] == 0 && digest[1] == 0 && digest[2] == 0) {
-                    return String.valueOf(i);                    
+                    return i;
                 }
                 ++i;
             } while (true);
