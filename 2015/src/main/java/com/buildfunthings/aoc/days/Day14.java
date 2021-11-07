@@ -1,9 +1,7 @@
 package com.buildfunthings.aoc.days;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.buildfunthings.aoc.common.Day;
@@ -62,8 +60,6 @@ public class Day14 implements Day {
     @Override
     public String part2(List<String> input) {
         List<Reindeer> race = input.stream().map(this::fromString).collect(Collectors.toList());
-        Map<String, Integer> raceState = new HashMap<>();
-        Map<String, Integer> bonusPoints = new HashMap<>();
         
         // The seconds of the race
         for (int s = 1; s <= 2503; s++) {

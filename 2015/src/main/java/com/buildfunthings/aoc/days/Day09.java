@@ -1,7 +1,6 @@
 package com.buildfunthings.aoc.days;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,15 +106,13 @@ public class Day09 implements Day {
 
         List<String[]> permutations = getPermutations(input);
 
-        int shortest = Integer.MAX_VALUE;
-
         return String.valueOf(
-        permutations.stream()
-            .mapToInt(p -> IntStream.range(0, p.length-1)
-                      .mapToObj(idxFrom -> _paths.get(p[idxFrom]).get(p[idxFrom + 1]))
-                      .mapToInt(Integer::intValue)
-                        .sum())
-                .max().getAsInt()
+                              permutations.stream()
+                              .mapToInt(p -> IntStream.range(0, p.length-1)
+                                        .mapToObj(idxFrom -> _paths.get(p[idxFrom]).get(p[idxFrom + 1]))
+                                        .mapToInt(Integer::intValue)
+                                        .sum())
+                              .max().getAsInt()
                               );
 	}
 

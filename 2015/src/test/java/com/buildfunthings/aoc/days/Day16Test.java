@@ -2,10 +2,6 @@ package com.buildfunthings.aoc.days;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.buildfunthings.aoc.common.Day;
 import com.buildfunthings.aoc.common.DayInputExternalResource;
 
