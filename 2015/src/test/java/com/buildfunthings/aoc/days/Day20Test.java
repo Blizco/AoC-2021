@@ -23,14 +23,14 @@ public class Day20Test {
         };
 
         Day20 day = new Day20();
-        //assertEquals(Integer.valueOf(8), day.part1(input));
+        assertEquals(Integer.valueOf(8), day.part1(input));
     }
 
     @Test
     public void testRealInput() {
         Day20 day = new Day20();
-        //        assertEquals(Integer.valueOf(0), day.part1(input.getLines()));
-        //        assertEquals(Integer.valueOf(0), day.part2(input.getLines()));
+        assertEquals(Integer.valueOf(776160), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(786240), day.part2(input.getLines()));
     }
 
 }
