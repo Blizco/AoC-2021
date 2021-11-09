@@ -81,8 +81,6 @@ public class Day19 implements Day<Integer> {
         reset();
         readInput(input);
 
-        List<String> keys = new ArrayList<>(reversed.keySet());
-
         PriorityQueue<SearchNode> q = new PriorityQueue<>();
         q.add(new SearchNode(medicine.length(), 0, medicine));
 
