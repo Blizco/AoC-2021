@@ -17,5 +17,14 @@ public class Day22Test {
         Day22 d = new Day22();
         Day22.GameState gs = d.newGameState();
 
+        // Day22.Player p1 = new Day22.Player();
+        // p1.mana = 100;
+        // Day22.Player p2 = new Day22.Player();
+        // p2.mana = 200;
+        
+        // Day22.Attack a = new Day22.Attack("Massive Missile", (s, r) -> {
+        //         r.health -= 4;
+        //         return r.health <= 0;
+        // }, p1, p2, 1, true, 53);
     }
 }

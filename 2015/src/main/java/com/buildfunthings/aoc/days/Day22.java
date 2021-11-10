@@ -1,38 +1,36 @@
 package com.buildfunthings.aoc.days;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 import com.buildfunthings.aoc.common.Day;
+import com.google.common.collect.ImmutableList;
 
 public class Day22 implements Day<Integer> {
 
-    @FunctionalInterface
-    interface TriFunction<A, B, C, R> {
-
-        R apply(A a, B b, C c);
-
-        default <V> TriFunction<A, B, C, V> andThen(Function<? super R, ? extends V> after) {
-            Objects.requireNonNull(after);
-            return (A a, B b, C c) -> after.apply(apply(a, b, c));
-        }
-    }
-
-    class GameState {
+    class GameState implements Cloneable {
         Player me;
         Player boss;
 
-        // List of ongoing attacks, can be one off or effects
-        List<Attack> attacks = new ArrayList<>();
+        // List of attacks, past and present, can be one off or effects
+        ImmutableList<Attack> attacks;
 
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
+
+        public GameState addAttack(Attack a) throws CloneNotSupportedException {
+            GameState newGS = (GameState) this.clone();
+            // Add the attack to the list and return the object
+            newGS.attacks = ImmutableList.<Attack>builder().addAll(newGS.attacks).add(a).build();
+            return newGS;
+        }
     }
 
-    class Attack {
+    public class Attack {
         String name;
         // SENDER RECEIVER Return: Kill?
         BiFunction<Player, Player, Boolean> func;
@@ -55,10 +53,15 @@ public class Day22 implements Day<Integer> {
 
     }
 
-    class Player {
+    public class Player implements Cloneable {
         int mana = 500;
         int health = 100;
         int armor = 0;
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
     }
 
     public GameState newGameState() {
@@ -69,25 +72,25 @@ public class Day22 implements Day<Integer> {
         Map<String, BiFunction<Player, Player, Attack>> attacks = new HashMap<>() {
             {
                 put(("Massive Missile"), (s, r) -> new Attack("Massive Missile", (sender, receiver) -> {
-                    r.health -= 4;
-                    return r.health <= 0;
+                    receiver.health -= 4;
+                    return receiver.health <= 0;
                 }, s, r, 1, true, 53));
                 put(("Drain"), (s, r) -> new Attack("Drain", (sender, receiver) -> {
-                    s.health += 2;
-                    r.health -= 2;
-                    return r.health <= 0;
+                    sender.health += 2;
+                    receiver.health -= 2;
+                    return receiver.health <= 0;
                 }, s, r, 1, true, 73));
                 put(("Shield"), (s, r) -> new Attack("Shield", (sender, receiver) -> {
-                    s.armor += 7;
-                    return r.health <= 0;
+                    sender.armor += 7;
+                    return receiver.health <= 0;
                 }, s, r, 6, false, 113));
                 put(("Poison"), (s, r) -> new Attack("Poison", (sender, receiver) -> {
-                    r.health -= 3;
-                    return r.health <= 0;
+                    receiver.health -= 3;
+                    return receiver.health <= 0;
                 }, s, r, 6, false, 173));
                 put(("Recharge"), (s, r) -> new Attack("Recharge", (sender, receiver) -> {
-                    s.mana += 101;
-                    return r.health <= 0;
+                    sender.mana += 101;
+                    return receiver.health <= 0;
                 }, s, r, 5, false, 229));
             }
         };
