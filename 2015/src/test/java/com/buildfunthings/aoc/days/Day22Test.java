@@ -1,5 +1,6 @@
 package com.buildfunthings.aoc.days;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import com.buildfunthings.aoc.common.DayInputExternalResource;
@@ -13,6 +14,8 @@ public class Day22Test {
 
     @Test
     public void testSampleInput() {
-        assertTrue(true);
+        Day22 d = new Day22();
+        Day22.GameState gs = d.newGameState();
+
     }
 }
