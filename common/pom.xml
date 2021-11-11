@@ -7,19 +7,16 @@
     <artifactId>adventofcode</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>year2016</artifactId>
+
+  <groupId>com.buildfunthings</groupId>
+  <artifactId>common</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Advent of Code 2016</name>
+  <name>Common</name>
   <url>https://www.buildfunthings.com</url>
 
   <dependencies>
-
-    <dependency>
-      <groupId>com.buildfunthings</groupId>
-      <artifactId>common</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-    </dependency>
 
   </dependencies>
 </project>

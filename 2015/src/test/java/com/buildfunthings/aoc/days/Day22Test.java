@@ -14,8 +14,6 @@ public class Day22Test {
 
     @Test
     public void testSampleInput() {
-        Day22 d = new Day22();
-        Day22.GameState gs = d.newGameState();
 
         // Day22.Player p1 = new Day22.Player();
         // p1.mana = 100;
