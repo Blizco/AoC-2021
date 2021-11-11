@@ -8,9 +8,17 @@ cache:
 
 # For merge requests do not `deploy` but only run `verify`.
 # See https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
-test: 
+aoc2015: 
   stage: test
   script:
+    - cd 2015
     - 'mvn $MAVEN_CLI_OPTS test'
+
+aoc2016: 
+  stage: test
+  script:
+    - cd 2016
+    - 'mvn $MAVEN_CLI_OPTS test'
+
 
 
