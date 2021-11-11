@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 import com.buildfunthings.aoc.common.Day;
 
@@ -108,8 +109,7 @@ public class Day01 implements Day<Integer> {
         }
     }
     
-    @Override
-    public Integer part2(List<String> input) {
+    public Integer part2OO(List<String> input) {
         int x = 0;
         int y = 0;
 
@@ -177,5 +177,42 @@ public class Day01 implements Day<Integer> {
 
         return 0;
     }
+
+    
+    @Override
+    public Integer part2(List<String> input) {
+        int d = 0;
+        int[] DX = new int[] { 0, 1, 0, -1 };
+        int[] DY = new int[] { -1, 0, 1, 0 };
+
+        int x = 0;
+        int y = 0;
+
+        Set<Coord> seen = new HashSet<>();
+        for (String s : input.get(0).split(", ")) {
+            String dir = s.substring(0, 1);
+            int blocks = Integer.parseInt(s.substring(1));
+
+            if ("L".equals(dir)) {
+                d = (d + 3) % 4; 
+            } else {
+                d = (d + 1) % 4;
+            }
+
+            for (int c : IntStream.range(1, blocks + 1).toArray()) {
+                x += DX[d];
+                y += DY[d];
+
+                Coord step = new Coord(x, y);
+                if (seen.contains(step)) {
+                    return Math.abs(step.x) + Math.abs(step.y);
+                }
+                seen.add(step);
+            }
+        }
+
+        return 158;
+    }
+
     
 }
