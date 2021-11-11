@@ -14,59 +14,60 @@ import lombok.ToString;
 
 public class Day01 implements Day<Integer> {
     enum Direction {
-        NORTH,EAST,SOUTH,WEST;
+        NORTH, EAST, SOUTH, WEST;
     }
+
     @Override
     public Integer part1(List<String> input) {
         int x = 0;
         int y = 0;
         Direction d = Direction.NORTH;
-        
+
         String instructions = input.get(0);
         for (String s : instructions.split(", ")) {
-            String dir = s.substring(0,1);
+            String dir = s.substring(0, 1);
             int blocks = Integer.parseInt(s.substring(1));
 
             boolean left = "L".equals(dir);
             switch (d) {
-            case NORTH:
-                if (left) {
-                    d = Direction.WEST;
-                    x -= blocks;
-                } else {
-                    d = Direction.EAST;
-                    x += blocks;
-                }
-                break;
-            case EAST:
-                if (left) {
-                    d = Direction.NORTH;
-                    y += blocks;
-                } else {
-                    d = Direction.SOUTH;
-                    y -= blocks;
-                }
-                break;
-            case SOUTH:
-                if (left) {
-                    d = Direction.EAST;
-                    x += blocks;
-                } else {
-                    d = Direction.WEST;
-                    x -= blocks;
-                }
-                break;
-            case WEST:
-                if (left) {
-                    d = Direction.SOUTH;
-                    y -= blocks;
-                } else {
-                    d = Direction.NORTH;
-                    y += blocks;
-                }
-                break;
+                case NORTH:
+                    if (left) {
+                        d = Direction.WEST;
+                        x -= blocks;
+                    } else {
+                        d = Direction.EAST;
+                        x += blocks;
+                    }
+                    break;
+                case EAST:
+                    if (left) {
+                        d = Direction.NORTH;
+                        y += blocks;
+                    } else {
+                        d = Direction.SOUTH;
+                        y -= blocks;
+                    }
+                    break;
+                case SOUTH:
+                    if (left) {
+                        d = Direction.EAST;
+                        x += blocks;
+                    } else {
+                        d = Direction.WEST;
+                        x -= blocks;
+                    }
+                    break;
+                case WEST:
+                    if (left) {
+                        d = Direction.SOUTH;
+                        y -= blocks;
+                    } else {
+                        d = Direction.NORTH;
+                        y += blocks;
+                    }
+                    break;
             }
-            
+
         }
 
         return (Math.abs(x) + Math.abs(y));
@@ -108,59 +109,59 @@ public class Day01 implements Day<Integer> {
             return cl;
         }
     }
-    
+
     public Integer part2OO(List<String> input) {
         int x = 0;
         int y = 0;
 
         Coord place = new Coord(x, y);
-        
+
         Direction d = Direction.NORTH;
 
         List<Coord> seen = new ArrayList<>();
         String instructions = input.get(0);
         for (String s : instructions.split(", ")) {
-            String dir = s.substring(0,1);
+            String dir = s.substring(0, 1);
             int blocks = Integer.parseInt(s.substring(1));
 
             boolean left = "L".equals(dir); // either L or R
             switch (d) {
-            case NORTH:
-                if (left) {
-                    d = Direction.WEST;
-                    x -= blocks;
-                } else {
-                    d = Direction.EAST;
-                    x += blocks;
-                }
-                break;
-            case EAST:
-                if (left) {
-                    d = Direction.NORTH;
-                    y += blocks;
-                } else {
-                    d = Direction.SOUTH;
-                    y -= blocks;
-                }
-                break;
-            case SOUTH:
-                if (left) {
-                    d = Direction.EAST;
-                    x += blocks;
-                } else {
-                    d = Direction.WEST;
-                    x -= blocks;
-                }
-                break;
-            case WEST:
-                if (left) {
-                    d = Direction.SOUTH;
-                    y -= blocks;
-                } else {
-                    d = Direction.NORTH;
-                    y += blocks;
-                }
-                break;
+                case NORTH:
+                    if (left) {
+                        d = Direction.WEST;
+                        x -= blocks;
+                    } else {
+                        d = Direction.EAST;
+                        x += blocks;
+                    }
+                    break;
+                case EAST:
+                    if (left) {
+                        d = Direction.NORTH;
+                        y += blocks;
+                    } else {
+                        d = Direction.SOUTH;
+                        y -= blocks;
+                    }
+                    break;
+                case SOUTH:
+                    if (left) {
+                        d = Direction.EAST;
+                        x += blocks;
+                    } else {
+                        d = Direction.WEST;
+                        x -= blocks;
+                    }
+                    break;
+                case WEST:
+                    if (left) {
+                        d = Direction.SOUTH;
+                        y -= blocks;
+                    } else {
+                        d = Direction.NORTH;
+                        y += blocks;
+                    }
+                    break;
             }
 
             Coord dest = new Coord(x, y);
@@ -168,7 +169,7 @@ public class Day01 implements Day<Integer> {
             for (Coord step : steps) {
                 if (seen.contains(step)) {
                     return (Math.abs(step.x) + Math.abs(step.y));
-                } 
+                }
                 seen.add(step);
             }
 
@@ -178,7 +179,6 @@ public class Day01 implements Day<Integer> {
         return 0;
     }
 
-    
     @Override
     public Integer part2(List<String> input) {
         int d = 0;
@@ -194,7 +194,7 @@ public class Day01 implements Day<Integer> {
             int blocks = Integer.parseInt(s.substring(1));
 
             if ("L".equals(dir)) {
-                d = (d + 3) % 4; 
+                d = (d + 3) % 4;
             } else {
                 d = (d + 1) % 4;
             }
@@ -214,5 +214,4 @@ public class Day01 implements Day<Integer> {
         return 158;
     }
 
-    
 }
