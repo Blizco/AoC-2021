@@ -255,3 +255,4 @@ buildNumber.properties
 .flattened-pom.xml
 
 # End of https://www.gitignore.io/api/java,emacs,maven,eclipse,intellij
+/aoc-2015/testing/

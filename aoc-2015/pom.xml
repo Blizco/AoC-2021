@@ -16,6 +16,16 @@
     <maven.compiler.target>17</maven.compiler.target>
     <maven.compiler.source>17</maven.compiler.source>
   </properties>
+
+  <profiles>
+    <profile>
+      <id>testing</id>
+      <build>
+        <directory>testing</directory>
+      </build>
+    </profile>
+  </profiles>
+
   
   <dependencies>
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
