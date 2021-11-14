@@ -54,10 +54,6 @@ public class Day22 implements Day<Integer> {
     @Override
     public Integer part1(List<String> input) {
         return solve(input, false);
-        // long start = System.currentTimeMillis();
-        // System.out.println("Part One = " + solve(input, false));
-        // System.out.println(System.currentTimeMillis() - start);
-        // return 0;
     }
 
     @Override
