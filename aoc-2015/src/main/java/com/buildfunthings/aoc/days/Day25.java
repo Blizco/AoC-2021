@@ -28,14 +28,15 @@ public class Day25 implements Day<Long> {
                 }
                 steps++;
                 if (row == 3010 && col == 3019) {
-                    System.out.println("Current depth: " + depth + " steps " + steps);
-                    System.out.println( "" + row + " x " + col + "= " + lastNum);
-                    return lastNum;
+                    // System.out.println("Current depth: " + depth + " steps " + steps);
+                    // System.out.println( "" + row + " x " + col + "= " + lastNum);
+                    return Long.valueOf(lastNum);
                 }
             }
             
         }
         System.out.println("Steps: " + steps);
+        return null;
     }
 
     @Override

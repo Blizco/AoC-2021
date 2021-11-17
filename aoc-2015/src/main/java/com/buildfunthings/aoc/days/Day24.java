@@ -130,10 +130,10 @@ public class Day24 implements Day<Long> {
                 if (Arrays.stream(z).distinct()
                     .filter(x -> Arrays.stream(b).anyMatch(y -> y == x)).toArray().length == 0) {
                     buckets.add(b);
-                    System.out.print(".");
+                    //System.out.print(".");
                     //System.out.println("Buckets: " + buckets.size());
                     if (buckets.size() == 3) {
-                        System.out.print("!");
+                        //System.out.print("!");
                         // for (int[] x : buckets) {
                         //     System.out.println(Arrays.toString(x));
                         // }

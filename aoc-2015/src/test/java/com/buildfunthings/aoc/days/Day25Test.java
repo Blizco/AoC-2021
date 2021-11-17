@@ -15,12 +15,12 @@ public class Day25Test {
     @Test
     public void part1() {
         Day<Long> day = new Day25();
-        assertEquals(Integer.valueOf(8997277), day.part1(input.getLines()));
+        assertEquals(Long.valueOf(8997277L), day.part1(input.getLines()));
     }
     
     @Test
     public void part2() {
         Day<Long> day = new Day25();
-        assertEquals(Integer.valueOf(0), day.part2(input.getLines()));
+        assertEquals(Long.valueOf(0L), day.part2(input.getLines()));
     }
 }
