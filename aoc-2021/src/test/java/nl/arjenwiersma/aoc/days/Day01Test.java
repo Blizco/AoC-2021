@@ -22,7 +22,7 @@ public class Day01Test {
     @Test
     public void part2() {
         Day<Integer> day = new Day01();
-        assertEquals(Integer.valueOf(0), day.part2(input.getLines()));
+        assertEquals(Integer.valueOf(0), day.part2(input.getLines()));        
     }
 }
 
