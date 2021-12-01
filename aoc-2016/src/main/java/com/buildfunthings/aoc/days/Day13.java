@@ -1,10 +1,6 @@
 package com.buildfunthings.aoc.days;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 import com.buildfunthings.aoc.common.Day;
 
@@ -84,7 +80,7 @@ public class Day13 implements Day<Integer> {
 
     public List<List<Coord>> findPathsTo(int x, int y) {
         List<List<Coord>> valid = new ArrayList<>();
-        PriorityQueue<List<Coord>> paths = new PriorityQueue<>((a,b)-> (a.size() - b.size()));
+        PriorityQueue<List<Coord>> paths = new PriorityQueue<>(Comparator.comparingInt(List::size));
 
         paths.add(new ArrayList<Coord>() {{
             add(new Coord(1,1));
@@ -117,7 +113,7 @@ public class Day13 implements Day<Integer> {
 
     public List<List<Coord>> pathsOfNSteps(int steps) {
         List<List<Coord>> valid = new ArrayList<>();
-        PriorityQueue<List<Coord>> paths = new PriorityQueue<>((a,b)-> (a.size() - b.size()));
+        PriorityQueue<List<Coord>> paths = new PriorityQueue<>(Comparator.comparingInt(List::size));
 
         paths.add(new ArrayList<Coord>() {{
             add(new Coord(1,1));
@@ -145,7 +141,7 @@ public class Day13 implements Day<Integer> {
                     dead = false;
                 }
             }
-            if (dead) { // If there is a dead end (and less then N steps) add it to the list
+            if (dead) { // If there is a dead end (and less than N steps) add it to the list
                 valid.add(current);
             }
         }
@@ -158,7 +154,7 @@ public class Day13 implements Day<Integer> {
         magic = Integer.parseInt(input.get(0));
 
         var valid = findPathsTo(31, 39);
-        return valid.stream().mapToInt(x -> x.size()).min().getAsInt() - 1;
+        return valid.stream().mapToInt(List::size).min().getAsInt() - 1;
     }
 
 
@@ -171,7 +167,7 @@ public class Day13 implements Day<Integer> {
 
         for (List<Coord> cl : valid) {
             for (Coord c : cl) {
-                unique.merge(c, Integer.valueOf(1), Integer::sum);
+                unique.merge(c, 1, Integer::sum);
             }
         }
 
