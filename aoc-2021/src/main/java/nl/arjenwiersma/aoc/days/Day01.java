@@ -1,12 +1,8 @@
 package nl.arjenwiersma.aoc.days;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import nl.arjenwiersma.aoc.common.Day;
-import nl.arjenwiersma.aoc.utils.SlidingWindowSpliterator;
 
-import static nl.arjenwiersma.aoc.utils.SlidingWindowSpliterator.windowed;
+import java.util.List;
 
 public class Day01 implements Day<Integer> {
     @Override
@@ -29,7 +25,7 @@ public class Day01 implements Day<Integer> {
 
             for (int x = -1 * step; x < 0; x++) {
                 sum1 += n[i + x];
-                sum2 += n[i + (x+1)];
+                sum2 += n[i + (x + 1)];
             }
 
             if (sum1 < sum2) {
@@ -38,5 +34,5 @@ public class Day01 implements Day<Integer> {
         }
         return howmany;
     }
-    
+
 }
