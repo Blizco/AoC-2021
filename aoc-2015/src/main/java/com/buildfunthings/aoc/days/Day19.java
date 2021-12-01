@@ -148,13 +148,7 @@ public class Day19 implements Day<Integer> {
 
         @Override
         public int compareTo(SearchNode o) {
-            if (length == o.length) {
-                return 0;
-            } else if (length > o.length) {
-                return 1;
-            } else {
-                return -1;
-            }
+            return Integer.compare(length, o.length);
         }
 
         @Override

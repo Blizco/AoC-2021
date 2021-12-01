@@ -15,8 +15,8 @@ public class Day25 implements Day<Long> {
         //  1 x 1
         //  2 x 1
         //  1 x 2
-        Integer steps = 0;
-        for (int depth = 1; depth <= Integer.MAX_VALUE; depth++) {
+        int steps = 0;
+        for (int depth = 1; true; depth++) {
             //System.out.println("--- depth " + depth + " ----");
             for (int row = depth, col = 1;
                  row > 0 && col <= depth;
@@ -30,13 +30,10 @@ public class Day25 implements Day<Long> {
                 if (row == 3010 && col == 3019) {
                     // System.out.println("Current depth: " + depth + " steps " + steps);
                     // System.out.println( "" + row + " x " + col + "= " + lastNum);
-                    return Long.valueOf(lastNum);
+                    return lastNum;
                 }
             }
-            
         }
-        System.out.println("Steps: " + steps);
-        return null;
     }
 
     @Override

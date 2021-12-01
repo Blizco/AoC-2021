@@ -9,7 +9,7 @@ public class Day20 implements Day<Integer> {
     
     @Override
     public Integer part1(List<String> input) {
-        final int TARGET = Integer.valueOf(input.get(0));
+        final int TARGET = Integer.parseInt(input.get(0));
         int[] houses = new int[SIZE];
         int answer = 0;
 
@@ -31,7 +31,7 @@ public class Day20 implements Day<Integer> {
 
     @Override
     public Integer part2(List<String> input) {
-        final int TARGET = Integer.valueOf(input.get(0));
+        final int TARGET = Integer.parseInt(input.get(0));
         int[] houses = new int[SIZE];
         int answer = 0;
 

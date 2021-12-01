@@ -13,12 +13,7 @@ public class Day05 implements Day<Long> {
 
         for (int i = 0; i < entry.length(); ++i) {
             switch (entry.charAt(i)) {
-            case 'a':
-            case 'e':
-            case 'i':
-            case 'o':
-            case 'u':
-                vowels++;
+                case 'a', 'e', 'i', 'o', 'u' -> vowels++;
             }
 
             if (i < entry.length() - 1 && entry.charAt(i) == entry.charAt(i + 1)) {
@@ -28,15 +23,12 @@ public class Day05 implements Day<Long> {
             for (String o : new String[] { "ab", "cd", "pq", "xy" }) {
                 if (entry.contains(o)) {
                     offensive = true;
+                    break;
                 }
             }
         }
 
-        if (vowels >= 3 && doubles > 0 && !offensive) {
-            return true;
-        }
-
-        return false;
+        return vowels >= 3 && doubles > 0 && !offensive;
     }
 
     boolean isNiceStringNotRidiculous(String entry) {
@@ -58,21 +50,17 @@ public class Day05 implements Day<Long> {
             }
         }
 
-        if (pair > 0 && repeat > 0) {
-            return true;
-        }
-
-        return false;
+        return pair > 0 && repeat > 0;
     }
 
     @Override
     public Long part1(List<String> input) {
-        return input.stream().filter(s -> isNiceString(s)).count();
+        return input.stream().filter(this::isNiceString).count();
     }
 
     @Override
     public Long part2(List<String> input) {
-        return input.stream().filter(s -> isNiceStringNotRidiculous(s)).count();
+        return input.stream().filter(this::isNiceStringNotRidiculous).count();
     }
 
 }

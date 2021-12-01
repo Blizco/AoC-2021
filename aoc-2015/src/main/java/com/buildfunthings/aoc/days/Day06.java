@@ -20,13 +20,13 @@ public class Day06 implements Day<Integer> {
         int endY;
 
         void setStart(String[] pos) {
-            startX = Integer.valueOf(pos[0]);
-            startY = Integer.valueOf(pos[1]);
+            startX = Integer.parseInt(pos[0]);
+            startY = Integer.parseInt(pos[1]);
         }
 
         void setEnd(String[] pos) {
-            endX = Integer.valueOf(pos[0]);
-            endY = Integer.valueOf(pos[1]);
+            endX = Integer.parseInt(pos[0]);
+            endY = Integer.parseInt(pos[1]);
         }
     }
 
@@ -39,15 +39,9 @@ public class Day06 implements Day<Integer> {
             pos++;
 
         switch (parts[pos]) {
-        case "on":
-            step.op = OPERATION.TURN_ON;
-            break;
-        case "off":
-            step.op = OPERATION.TURN_OFF;
-            break;
-        case "toggle":
-            step.op = OPERATION.TOGGLE;
-            break;
+            case "on" -> step.op = OPERATION.TURN_ON;
+            case "off" -> step.op = OPERATION.TURN_OFF;
+            case "toggle" -> step.op = OPERATION.TOGGLE;
         }
 
         pos++;
@@ -63,15 +57,9 @@ public class Day06 implements Day<Integer> {
         for (int x = step.startX; x <= step.endX; x++) {
             for (int y = step.startY; y <= step.endY; y++) {
                 switch (step.op) {
-                case TOGGLE:
-                    grid[x][y] = (grid[x][y] == 1 ? 0 : 1);
-                    break;
-                case TURN_ON:
-                    grid[x][y] = 1;
-                    break;
-                case TURN_OFF:
-                    grid[x][y] = 0;
-                    break;
+                    case TOGGLE -> grid[x][y] = (grid[x][y] == 1 ? 0 : 1);
+                    case TURN_ON -> grid[x][y] = 1;
+                    case TURN_OFF -> grid[x][y] = 0;
                 }
             }
         }
@@ -81,17 +69,13 @@ public class Day06 implements Day<Integer> {
         for (int x = step.startX; x <= step.endX; x++) {
             for (int y = step.startY; y <= step.endY; y++) {
                 switch (step.op) {
-                case TOGGLE:
-                    grid[x][y] += 2;
-                    break;
-                case TURN_ON:
-                    grid[x][y]++;
-                    break;
-                case TURN_OFF:
-                    grid[x][y]--;
-                    if (grid[x][y] < 0)
-                        grid[x][y] = 0;
-                    break;
+                    case TOGGLE -> grid[x][y] += 2;
+                    case TURN_ON -> grid[x][y]++;
+                    case TURN_OFF -> {
+                        grid[x][y]--;
+                        if (grid[x][y] < 0)
+                            grid[x][y] = 0;
+                    }
                 }
             }
         }
@@ -99,9 +83,9 @@ public class Day06 implements Day<Integer> {
 
     int sumLights(int[][] grid) {
         int on = 0;
-        for (int x = 0; x < grid.length; x++) {
-            for (int y = 0; y < grid[x].length; y++) {
-                on += grid[x][y];
+        for (int[] ints : grid) {
+            for (int anInt : ints) {
+                on = on + anInt;
             }
         }
         return on;

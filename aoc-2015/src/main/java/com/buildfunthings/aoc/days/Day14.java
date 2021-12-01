@@ -33,7 +33,7 @@ public class Day14 implements Day<Integer> {
             int moveable = (seconds <= sec ? seconds : seconds - leftOver);
             int cycles = (moveable / (sec + rest));
             
-            return (cycles * sec * km) + ((leftOver > sec ? sec : leftOver) * km);
+            return (cycles * sec * km) + ((Math.min(leftOver, sec)) * km);
         }
         
         void addBonus() {

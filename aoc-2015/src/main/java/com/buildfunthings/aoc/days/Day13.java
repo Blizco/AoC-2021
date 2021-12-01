@@ -55,7 +55,7 @@ public class Day13 implements Day<Integer> {
             // get rid of the . at the end
             String[] parts = instruction.substring(0, instruction.length() - 1).split(" ");
             Map<String, Integer> currentLoveHate = loveHate.getOrDefault(parts[0], new HashMap<>());
-            Integer value = Integer.parseInt(parts[3]);
+            int value = Integer.parseInt(parts[3]);
 
             currentLoveHate.put(parts[10], parts[2].equals("gain") ? value : -value);
 

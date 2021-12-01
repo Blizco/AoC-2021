@@ -49,11 +49,8 @@ public class Day21 implements Day<Integer> {
             if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
                 return false;
             if (description == null) {
-                if (other.description != null)
-                    return false;
-            } else if (!description.equals(other.description))
-                return false;
-            return true;
+                return other.description == null;
+            } else return description.equals(other.description);
         }
 
         private Day21 getEnclosingInstance() {
@@ -99,7 +96,7 @@ public class Day21 implements Day<Integer> {
     int getValue(String input) {
         String[] elems = input.split(": ");
 
-        return Integer.valueOf(elems[1]);
+        return Integer.parseInt(elems[1]);
     }
 
     boolean isValidCombo(List<Item> items) {

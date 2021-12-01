@@ -27,9 +27,8 @@ public class Day12 implements Day<Integer> {
     }
 
     boolean isRed(JsonNode node) {
-        Iterator<JsonNode> it = node.iterator();
-        while (it.hasNext()) {
-            if ("red".equals(it.next().asText())) {
+        for (JsonNode jsonNode : node) {
+            if ("red".equals(jsonNode.asText())) {
                 return true;
             }
         }

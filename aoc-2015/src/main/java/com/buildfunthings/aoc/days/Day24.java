@@ -56,7 +56,6 @@ public class Day24 implements Day<Long> {
     /** Helper for printing an answer */
     private void printAnswer(Deque<Integer> xs) {
         all.add(xs.stream().mapToInt(x -> x).toArray());
-        return;
         // // Print the sum
         // int sum = 0;
         // for (int x : xs) sum += x;
@@ -91,7 +90,7 @@ public class Day24 implements Day<Long> {
     
     @Override
     public Long part1(List<String> input) {
-        int[] numbers = input.stream().mapToInt(s -> Integer.parseInt(s)).toArray();
+        int[] numbers = input.stream().mapToInt(Integer::parseInt).toArray();
         int sum = Arrays.stream(numbers).sum();
         int size = sum / 3;
 
@@ -143,7 +142,6 @@ public class Day24 implements Day<Long> {
                         }
                         sleds.add(buckets.toArray(new int[0][]));
                         buckets.clear();
-                        continue;
                     }
                 }
             }
@@ -170,7 +168,7 @@ public class Day24 implements Day<Long> {
 
     @Override
     public Long part2(List<String> input) {
-        int[] numbers = input.stream().mapToInt(s -> Integer.parseInt(s)).toArray();
+        int[] numbers = input.stream().mapToInt(Integer::parseInt).toArray();
         int sum = Arrays.stream(numbers).sum();
         int size = sum / 4;
 
@@ -222,7 +220,6 @@ public class Day24 implements Day<Long> {
                         }
                         sleds.add(buckets.toArray(new int[0][]));
                         buckets.clear();
-                        continue;
                     }
                 }
             }

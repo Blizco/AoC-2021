@@ -9,7 +9,7 @@ import com.buildfunthings.aoc.common.Day;
 public class Day08 implements Day<Integer> {
 
     public int countLength(Stream<String> stream, Function<String, String> mapper) {
-        return stream.map(mapper).mapToInt(s -> s.length()).sum();        
+        return stream.map(mapper).mapToInt(String::length).sum();
     }
     
     Function<String, String> nop = s -> s;

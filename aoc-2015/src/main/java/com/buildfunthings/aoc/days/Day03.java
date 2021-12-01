@@ -29,18 +29,10 @@ public class Day03 implements Day<Integer> {
 
 		for (String step : steps) {
 			switch (step) {
-			case "<":
-				--x;
-				break;
-			case ">":
-				++x;
-				break;
-			case "^":
-				++y;
-				break;
-			case "v":
-				--y;
-				break;
+				case "<" -> --x;
+				case ">" -> ++x;
+				case "^" -> ++y;
+				case "v" -> --y;
 			}
 
 			Position p = new Position(x, y);

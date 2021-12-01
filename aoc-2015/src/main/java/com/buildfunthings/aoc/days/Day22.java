@@ -43,7 +43,7 @@ public class Day22 implements Day<Integer> {
     private static int[] parseBoss(List<String> s) {
         int[] boss = new int[2];
         for (int i = 0; i < boss.length; i++) {
-            boss[i] = Integer.valueOf(s.get(i).split(": ")[1]);
+            boss[i] = Integer.parseInt(s.get(i).split(": ")[1]);
         }
         return boss;
     }

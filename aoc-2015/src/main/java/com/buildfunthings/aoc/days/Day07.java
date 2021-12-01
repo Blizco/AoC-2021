@@ -46,9 +46,7 @@ public class Day07 implements Day<Integer> {
         Op op;
 
         public boolean allWiresHaveValue() {
-            boolean valid = true;
-            if (left != null && left.value == -1)
-                valid = false;
+            boolean valid = left == null || left.value != -1;
             if (right != null && right.value == -1)
                 valid = false;
             return valid;
@@ -112,27 +110,26 @@ public class Day07 implements Day<Integer> {
             Op op = null;
 
             switch (inst.length) {
-            case 3: // ASSIGN
-                left = getWire(inst[0]);
-                result = getWire(inst[2]);
-
-                op = Op.ASSIGNX;
-                break;
-            case 4: // NOT
-                left = getWire(inst[1]);
-                result = getWire(inst[3]);
-                op = Op.NOT;
-                break;
-            case 5: // operation
-                left = getWire(inst[0]);
-                right = getWire(inst[2]);
-                op = Op.valueOf(inst[1]);
-                result = getWire(inst[4]);
-                break;
-            default:
-                System.out.println("Unknown case detected!");
+                case 3 -> { // ASSIGN
+                    left = getWire(inst[0]);
+                    result = getWire(inst[2]);
+                    op = Op.ASSIGNX;
+                }
+                case 4 -> { // NOT
+                    left = getWire(inst[1]);
+                    result = getWire(inst[3]);
+                    op = Op.NOT;
+                }
+                case 5 -> { // operation
+                    left = getWire(inst[0]);
+                    right = getWire(inst[2]);
+                    op = Op.valueOf(inst[1]);
+                    result = getWire(inst[4]);
+                }
+                default -> System.out.println("Unknown case detected!");
             }
 
+            assert result != null;
             Gate g = getGate(result.name);
 
             g.left = left;

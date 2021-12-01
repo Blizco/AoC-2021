@@ -8,7 +8,7 @@ import com.buildfunthings.aoc.common.Day;
 public class Day02 implements Day<Integer> {
 
     private int calculateWrapping(String[] parts) {
-        int[] p = Arrays.stream(parts).mapToInt(e -> Integer.valueOf(e)).toArray();
+        int[] p = Arrays.stream(parts).mapToInt(Integer::valueOf).toArray();
 
         int[] dim = new int[3];
         // 2*l*w + 2*w*h + 2*h*l
@@ -22,7 +22,7 @@ public class Day02 implements Day<Integer> {
     }
 
     private int calculateRibbon(String[] parts) {
-        int[] p = Arrays.stream(parts).mapToInt(e -> Integer.valueOf(e)).toArray();
+        int[] p = Arrays.stream(parts).mapToInt(Integer::valueOf).toArray();
 
         Arrays.sort(p);
 
@@ -45,16 +45,13 @@ public class Day02 implements Day<Integer> {
 
     @Override
     public Integer part1(List<String> input) {
-        int order = processEntry(input, 1);
-
-        return order;
+        return processEntry(input, 1);
     }
 
     @Override
     public Integer part2(List<String> input) {
-        int order = processEntry(input, 2);
 
-        return order;
+        return processEntry(input, 2);
     }
 
 }

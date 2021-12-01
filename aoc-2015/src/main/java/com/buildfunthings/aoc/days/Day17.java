@@ -56,7 +56,7 @@ public class Day17 implements Day<Long> {
     
 	@Override
 	public Long part1(List<String> input) {
-        int[] in = input.stream().mapToInt(s -> Integer.parseInt(s)).toArray();
+        int[] in = input.stream().mapToInt(Integer::parseInt).toArray();
         int[][] combos = combinations(in);
         
 		return countOfCombinedValue(combos, 150);
@@ -64,7 +64,7 @@ public class Day17 implements Day<Long> {
 
 	@Override
 	public Long part2(List<String> input) {
-        int[] in = input.stream().mapToInt(s -> Integer.parseInt(s)).toArray();
+        int[] in = input.stream().mapToInt(Integer::parseInt).toArray();
         int[][] combos = combinations(in);
 
 		return countOfContainersToSpare(combos, 150);

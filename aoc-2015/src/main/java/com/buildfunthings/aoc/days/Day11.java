@@ -20,12 +20,9 @@ public class Day11 implements Day<String> {
     }
 
     boolean isValid(String candidate) {
-        if (containsStraight(candidate) &&
-            noForbiddenChars(candidate) &&
-            containsTwoPairs(candidate)) {
-            return true;
-        }
-        return false;
+        return containsStraight(candidate) &&
+                noForbiddenChars(candidate) &&
+                containsTwoPairs(candidate);
     }
 
     String increment(String candidate) {

@@ -17,24 +17,20 @@ public class Day23 implements Day<Integer> {
                 int r = "a".equals(inst.substring(4, 5)) ? 0 : 1;
                 reg[r] = reg[r] / 2;
                 ip++;
-                break;
             }
             case "tpl" -> {
                 int r = "a".equals(inst.substring(4, 5)) ? 0 : 1;
                 reg[r] = reg[r] * 3;
                 ip++;
-                break;
             }
             case "inc" -> {
                 int r = "a".equals(inst.substring(4, 5)) ? 0 : 1;
                 reg[r] = reg[r] + 1;
                 ip++;
-                break;
             }
             case "jmp" -> {
                 int r = Integer.parseInt(inst.substring(4));
                 ip += r;
-                break;
             }
             case "jie" -> {
                 int r = "a".equals(inst.substring(4, 5)) ? 0 : 1;
@@ -43,7 +39,6 @@ public class Day23 implements Day<Integer> {
                     ip += off;
                 else
                     ip += 1;
-                break;
             }
             case "jio" -> {
                 int r = "a".equals(inst.substring(4, 5)) ? 0 : 1;
@@ -52,11 +47,9 @@ public class Day23 implements Day<Integer> {
                     ip += off;
                 else
                     ip += 1;
-                break;
             }
             default -> {
                 System.out.println("UNHANDLED: " + op);
-                break;
             }
             }
             //            System.out.println("[" + inst + "] a: " + reg[0] + " b:" + reg[1] + " ip: " + ip);

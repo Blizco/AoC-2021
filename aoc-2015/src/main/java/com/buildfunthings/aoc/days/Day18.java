@@ -29,13 +29,11 @@ public class Day18 implements Day<Integer> {
     }
 
     void printGrid(int[][] grid) {
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                switch (grid[i][j]) {
-                case 1:
+        for (int[] ints : grid) {
+            for (int anInt : ints) {
+                if (anInt == 1) {
                     System.out.print("#");
-                    break;
-                default:
+                } else {
                     System.out.print(".");
                 }
             }
@@ -54,10 +52,8 @@ public class Day18 implements Day<Integer> {
                     for (int col = Math.max(0, j - 1); col <= Math.min(grid.length - 1, j + 1); col++) {
                         if (row != i || col != j) {
 
-                            switch (grid[row][col]) {
-                            case 1:
+                            if (grid[row][col] == 1) {
                                 ++on;
-                                break;
                             }
                         }
                     }
@@ -84,9 +80,9 @@ public class Day18 implements Day<Integer> {
 
     int countOn(int[][] grid) {
         int on = 0;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j] == 1)
+        for (int[] ints : grid) {
+            for (int anInt : ints) {
+                if (anInt == 1)
                     ++on;
             }
         }
@@ -100,9 +96,8 @@ public class Day18 implements Day<Integer> {
         // printGrid(grid);
         for (int i = 0; i < 100; i++) {
             // System.out.println();
-            int[][] ev1 = evolveGrid(grid,1);
             // printGrid(ev1);
-            grid = ev1;
+            grid = evolveGrid(grid,1);
         }
 
         return countOn(grid);
@@ -115,9 +110,8 @@ public class Day18 implements Day<Integer> {
         // printGrid(grid);
         for (int i = 0; i < 100; i++) {
             // System.out.println();
-            int[][] ev1 = evolveGrid(grid,2);
             // printGrid(ev1);
-            grid = ev1;
+            grid = evolveGrid(grid,2);
         }
 
         return countOn(grid);
