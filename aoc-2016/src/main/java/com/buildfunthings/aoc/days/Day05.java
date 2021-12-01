@@ -57,7 +57,7 @@ public class Day05 implements Day<String> {
                     String myHash = DatatypeConverter.printHexBinary(digest).toLowerCase();
 
                     if (myHash.startsWith("00000")) {
-                        Character pos = myHash.charAt(5);
+                        char pos = myHash.charAt(5);
                         int c = pos - '0';
                         if (c >= 0 && c <= 7 ) {
                             if (password[c] == Character.MIN_VALUE) {

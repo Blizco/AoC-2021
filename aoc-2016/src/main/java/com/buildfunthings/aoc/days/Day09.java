@@ -19,11 +19,11 @@ public class Day09 implements Day<Long> {
         StringBuilder temp = new StringBuilder();
         for (int i = 0; i < chars.length;) {
 
-            if (chars[i] == '(' && marker == false) {
+            if (chars[i] == '(' && !marker) {
                 temp = new StringBuilder();
                 i++;
                 marker = true;
-            } else if (chars[i] == ')' && marker == true) {
+            } else if (chars[i] == ')' && marker) {
                 r = Integer.parseInt(temp.toString());
                 i++;
                 marker = false;

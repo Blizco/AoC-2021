@@ -80,6 +80,7 @@ public class Day07 implements Day<Integer> {
                     if (ip.charAt(i) == ip.charAt(i + 2) && ip.charAt(i) != ip.charAt(i + 1) && ip.charAt(i) == pair[1]
                             && ip.charAt(i + 1) == pair[0] && hyper) {
                         hyperbab = true;
+                        break;
                     }
                 }
             }

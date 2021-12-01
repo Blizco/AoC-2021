@@ -77,7 +77,7 @@ public class Day04 implements Day<Integer> {
 
     @Override
     public Integer part1(List<String> input) {
-        String pattern = "^(.+)-(\\d+)\\[(.+)\\]$";
+        String pattern = "^(.+)-(\\d+)\\[(.+)]$";
         Pattern r = Pattern.compile(pattern);
         Integer sectorSum = 0;
         
@@ -90,7 +90,7 @@ public class Day04 implements Day<Integer> {
     
     @Override
     public Integer part2(List<String> input) {
-        String pattern = "^(.+)-(\\d+)\\[(.+)\\]$";
+        String pattern = "^(.+)-(\\d+)\\[(.+)]$";
         Pattern r = Pattern.compile(pattern);
         
         for (String room : input ) {

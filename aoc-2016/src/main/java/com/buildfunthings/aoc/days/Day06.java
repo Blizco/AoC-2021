@@ -34,7 +34,7 @@ public class Day06 implements Day<String> {
         StringBuilder sb = new StringBuilder();
         for (Map<Character,Integer> f : freqs) {
             int max = Collections.max(f.values());
-            List<Character> maxKeys = f.entrySet().stream().filter(x -> x.getValue() == max).map(x -> x.getKey()).collect(Collectors.toList());
+            List<Character> maxKeys = f.entrySet().stream().filter(x -> x.getValue() == max).map(Map.Entry::getKey).collect(Collectors.toList());
             sb.append(maxKeys.get(0));
         }
         
@@ -48,7 +48,7 @@ public class Day06 implements Day<String> {
         StringBuilder sb = new StringBuilder();
         for (Map<Character,Integer> f : freqs) {
             int min = Collections.min(f.values());
-            List<Character> minKeys = f.entrySet().stream().filter(x -> x.getValue() == min).map(x -> x.getKey()).collect(Collectors.toList());
+            List<Character> minKeys = f.entrySet().stream().filter(x -> x.getValue() == min).map(Map.Entry::getKey).collect(Collectors.toList());
             sb.append(minKeys.get(0));
         }
         
