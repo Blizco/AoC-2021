@@ -30,22 +30,17 @@ public class Day03 implements Day<Long> {
         List<String> zeros = new ArrayList<>();
         List<String> ones = new ArrayList<>();
 
-        int count = 0;
-
         for (String in : set) {
-            //count += in.charAt(index) == '1' ? 1 : 0;
-            int x = (in.charAt(index) - 48);
-            count += x;
-            if (x == 1) {
+            if (in.charAt(index) == '1') {
                 ones.add(in);
             } else {
                 zeros.add(in);
             }
         }
 
-        if (dominant && count >= (set.size() - count)) {
+        if (dominant && ones.size() >= (set.size() - ones.size())) {
             return ones;
-        } else if (!dominant && count < (set.size() - count)) {
+        } else if (!dominant && ones.size() < (set.size() - ones.size())) {
             return ones;
         } else {
             return zeros;
