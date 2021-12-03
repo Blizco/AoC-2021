@@ -47,7 +47,7 @@ public class Day03Test {
         assertEquals(Long.valueOf(230), day.part2(input));
     }
 
-    @Test
+    //@Test
     public void testSorting() {
         List<String> input = new ArrayList<>() {{
             add("00100");
@@ -82,11 +82,6 @@ public class Day03Test {
             current = sorted.get(0).getValue();
             System.out.println(current);
         }
-        // buckets van 1 en 0
-//        for (String in : sorted) {
-//            // split 1 en 0
-//        }
-        // geef lijst met meest / minste count
     }
 
     @Test

@@ -9,7 +9,6 @@ public class Day03 implements Day<Long> {
     @Override
     public Long part1(List<String> input) {
         StringBuilder gamma = new StringBuilder();
-        StringBuilder epsilon = new StringBuilder();
 
         int[] pos = new int[input.get(0).length()];
         for (String in : input) {
@@ -20,19 +19,11 @@ public class Day03 implements Day<Long> {
 
         for (int p : pos) {
             int half = input.size() / 2;
-            if (p > half) {
-                gamma.append("1");
-                epsilon.append("0");
-            } else {
-                gamma.append("0");
-                epsilon.append("1");
-            }
+            gamma.append(p > half ? "1" : "0");
         }
-//        System.out.println(gamma);
-//        System.out.println(epsilon);
-        // loop over pos, maak gamma / epsilon strings
 
-        return Long.valueOf(gamma.toString(), 2) * Long.valueOf(epsilon.toString(), 2);
+        final long gammaNum = Long.valueOf(gamma.toString(), 2);
+        return gammaNum * (gammaNum ^ (long) (Math.pow(2, input.get(0).length()) - 1));
     }
 
     public List<String> findSubset(List<String> set, int index, boolean dominant) {
@@ -61,29 +52,23 @@ public class Day03 implements Day<Long> {
         }
     }
 
-    @Override
-    public Long part2(List<String> input) {
-        int oxygen = 0, co2 = 0;
-
+    private int findNumber(List<String> input, boolean dominant) {
         List<String> current = input;
         for (int i = 0; i < input.get(0).length(); i++) {
-            current = findSubset(current, i, true);
+            current = findSubset(current, i, dominant);
             //System.out.println(current);
             if (current.size() == 1)
                 break;
         }
+        return Integer.valueOf(current.get(0), 2);
+    }
 
-        oxygen = Integer.valueOf(current.get(0), 2);
-
-        current = input;
-        for (int i = 0; i < input.get(0).length(); i++) {
-            current = findSubset(current, i, false);
-            //System.out.println(current);
-            if (current.size() == 1)
-                break;
-        }
-        co2 = Integer.valueOf(current.get(0), 2);
+    @Override
+    public Long part2(List<String> input) {
+        int oxygen = findNumber(input, true);
+        int co2 = findNumber(input, false);
 
         return (long) oxygen * co2;
     }
+
 }
