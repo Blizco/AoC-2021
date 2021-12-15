@@ -86,12 +86,12 @@ public class Day03Test {
 
     @Test
     public void testPart1() {
-        assertEquals(Long.valueOf(3277364), day.part1(input.getLines()));
+        assertEquals(Long.valueOf(2498354), day.part1(input.getLines()));
     }
 
     @Test
     public void testPart2() {
-        assertEquals(Long.valueOf(5736383), day.part2(input.getLines()));
+        assertEquals(Long.valueOf(3277956), day.part2(input.getLines()));
     }
 }
 

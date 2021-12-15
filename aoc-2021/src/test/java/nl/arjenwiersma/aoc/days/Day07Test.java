@@ -35,11 +35,11 @@ public class Day07Test {
 
     @Test
     public void part1() {
-        assertEquals(Integer.valueOf(357353), day.part1(input.getLines()));
+        assertEquals(Integer.valueOf(344535), day.part1(input.getLines()));
     }
     
     @Test
     public void part2() {
-        assertEquals(Integer.valueOf(104822130), day.part2(input.getLines()));
+        assertEquals(Integer.valueOf(95581659), day.part2(input.getLines()));
     }
 }

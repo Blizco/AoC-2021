@@ -38,10 +38,10 @@ public class Day02Test {
 
     @Test
     public void testPart1() {
-        assertEquals(Long.valueOf(2117664), day.part1(input.getLines()));
+        assertEquals(Long.valueOf(1989014), day.part1(input.getLines()));
     }
     @Test
     public void testPart2() {
-        assertEquals(Long.valueOf(2073416724), day.part2(input.getLines()));
+        assertEquals(Long.valueOf(2006917119), day.part2(input.getLines()));
     }
 }

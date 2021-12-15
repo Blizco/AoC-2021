@@ -36,11 +36,11 @@ public class Day06Test {
 
     @Test
     public void testPart1() {
-        assertEquals(350917, (long)day.part1(input.getLines()));
+        assertEquals(362346, (long)day.part1(input.getLines()));
     }
     @Test
     public void testPart2() {
-        assertEquals(1592918715629L, (long)day.part2(input.getLines()));
+        assertEquals(1639643057051L, (long)day.part2(input.getLines()));
     }
 
 }
