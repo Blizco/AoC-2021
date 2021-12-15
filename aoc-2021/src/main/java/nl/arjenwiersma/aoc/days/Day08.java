@@ -22,6 +22,7 @@ public class Day08 implements Day<Integer> {
             String[] digits = parts[1].trim().split(" ");
 
             for (String d : digits) {
+//                System.out.println(d);
                 freqs.merge(d.length(), 1, Integer::sum);
             }
         }
@@ -49,6 +50,9 @@ public class Day08 implements Day<Integer> {
         int value = 0;
         for (String in : input) {
             String[] parts = in.split("\\|");
+//          split uses regular expression and in regex | is a metacharacter representing the OR operator.
+//          You need to escape that character using \ (written in String as "\\" since \ is also a metacharacter in String literals and require another \ to escape it).
+
             String[] digits = parts[1].trim().split(" ");
 
             Map<Set<Character>, Integer> knownStr = new HashMap<>();
